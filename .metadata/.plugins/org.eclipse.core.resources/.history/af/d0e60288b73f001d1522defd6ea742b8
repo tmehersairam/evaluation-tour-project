@@ -1,0 +1,14 @@
+package com.fis.entity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Tour {
+
+	private String packageId;
+	private String sourcePlace;
+	private float basicFare;
+	private String destinationPlace;
+	
+	
+}

@@ -1,0 +1,7 @@
+spring.application.name=tour-service
+server.port=9000
+spring.datasource.url=jdbc:mysql://localhost:3306/tourtb
+spring.datasource.username=root
+spring.datasource.password=rps@12345
+spring.jpa.hibernate.ddl-auto =update
+spring.mvc.view.suffix=.jsp

@@ -1,0 +1,9 @@
+package com.fis.exception;
+
+public class TourPackageException extends RuntimeException {
+	
+	public TourPackageException(String message) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

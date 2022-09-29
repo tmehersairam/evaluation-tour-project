@@ -1,0 +1,66 @@
+package com.fis.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.fis.entity.TourPackage;
+import com.fis.repository.TourRepository;
+import com.fis.util.AppConstant;
+
+@Component
+public class TourService {
+
+	@Autowired
+	TourRepository repository;
+
+	public TourPackage create(TourPackage tourPackage) {
+		return repository.save(tourPackage);
+	}
+
+	public TourPackage get(String packageId) {
+		return repository.findById(packageId).orElseThrow(() -> new RuntimeException("Invalid package Id"));
+	}
+
+	public List<TourPackage> getAll() {
+		return repository.findAll();
+	}
+
+	public double getTotalPackageCost(String packageId, int numberOfDays) {
+
+		TourPackage tourPackage = get(packageId);
+		int discount = getDiscount(numberOfDays);
+
+		double packageCost = (tourPackage.getBasicFare() * numberOfDays);
+		double discountedPackageCost = packageCost - (packageCost * discount / 100);
+		double totalPackCost = discountedPackageCost + discountedPackageCost * AppConstant.GST;
+
+		return totalPackCost;
+	}
+
+	private int getDiscount(int numberOfDays) {
+
+		int discount = 0;
+		if (numberOfDays > 5 && numberOfDays <= 8) {
+			discount = 3;
+		} else if (numberOfDays > 8 && numberOfDays <= 10) {
+			discount = 5;
+		} else if (numberOfDays > 10) {
+			discount = 7;
+		}
+		return discount;
+	}
+
+	public List<TourPackage> getBySourceAndDestination(String source, String destination) {
+
+		return repository.findBySourcePlaceAndDestinationPlace(source, destination);
+
+	}
+
+	public TourPackage update(TourPackage tourPackage) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

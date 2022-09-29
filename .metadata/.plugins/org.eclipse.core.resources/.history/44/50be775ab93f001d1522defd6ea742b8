@@ -1,0 +1,5 @@
+package com.fis.repository;
+
+public interface TourRepository {
+
+}

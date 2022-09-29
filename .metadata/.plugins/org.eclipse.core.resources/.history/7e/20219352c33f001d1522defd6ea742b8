@@ -1,0 +1,6 @@
+package com.fis.util;
+
+public class Constant {
+
+	 public static final int GST = 12;
+}

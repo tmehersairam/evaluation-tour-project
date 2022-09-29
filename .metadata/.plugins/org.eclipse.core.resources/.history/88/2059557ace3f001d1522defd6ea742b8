@@ -1,0 +1,8 @@
+package com.fis.entity;
+
+public class TotalCostResponseDto {
+
+	private String source;
+	private String destination;
+	private totalCost;
+}

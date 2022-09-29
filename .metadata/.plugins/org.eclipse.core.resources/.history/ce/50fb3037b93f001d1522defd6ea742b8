@@ -1,0 +1,47 @@
+package com.fis.entity;
+
+import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Tour {
+
+	@Id
+	private String packageId = UUID.randomUUID().toString().substring(0, 8);
+	private String sourcePlace;
+	private float basicFare;
+	private String destinationPlace;
+	
+	
+	
+	
+	public String getPackageId() {
+		return packageId;
+	}
+	public void setPackageId(String packageId) {
+		this.packageId = packageId;
+	}
+	public String getSourcePlace() {
+		return sourcePlace;
+	}
+	public void setSourcePlace(String sourcePlace) {
+		this.sourcePlace = sourcePlace;
+	}
+	public float getBasicFare() {
+		return basicFare;
+	}
+	public void setBasicFare(float basicFare) {
+		this.basicFare = basicFare;
+	}
+	public String getDestinationPlace() {
+		return destinationPlace;
+	}
+	public void setDestinationPlace(String destinationPlace) {
+		this.destinationPlace = destinationPlace;
+	}
+	
+	
+
+}
