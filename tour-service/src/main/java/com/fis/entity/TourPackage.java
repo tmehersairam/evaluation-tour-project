@@ -15,13 +15,13 @@ public class TourPackage {
 	@Size(min = 7, max = 7, message = "Package Id should of Size 7")
 	@NotEmpty
 	private String packageId = UUID.randomUUID().toString().substring(0, 7);
-	@NotEmpty
+	@NotEmpty(message = "Source place should not be empty")
 	private String sourcePlace;
 
 	@Min(value = 1, message = "Basic fare should be greater than 0")
 	private float basicFare;
 
-	@NotEmpty
+	@NotEmpty(message = "Destination place should not be empty")
 	private String destinationPlace;
 
 	public TourPackage() {
